@@ -63,6 +63,30 @@ model Account {
   @@map("account")
 }
 
+model Problem {
+  id                    String   @id @default(cuid())
+  title                 String
+  slug                  String   @unique
+  difficulty            String
+  tags                  Json
+  problemStatement      String
+  detailedDescription   String
+  inputFormat           String
+  outputFormat          String
+  constraints           Json
+  examples              Json
+  starterCode           String
+  hiddenTestCases       Json
+  visibleTestCases      Json
+  hints                 Json
+  expectedTimeComplexity  String
+  expectedSpaceComplexity String
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
+
+  @@map("problem")
+}
+
 model Verification {
   id         String   @id
   identifier String

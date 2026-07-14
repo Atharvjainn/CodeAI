@@ -16,7 +16,6 @@ import { Problem } from './interfaces/problem.interface.js';
 import { buildSystemPrompt, buildUserPrompt } from './prompts/templates.js';
 import { ProblemSchema } from './validators/problem-schema.js';
 import { Language } from './types/index.js';
-import { error } from 'node_modules/better-auth/dist/api/routes/error.mjs';
 
 @Injectable()
 export class AiService {

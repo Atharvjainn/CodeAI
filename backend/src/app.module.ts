@@ -5,6 +5,7 @@ import { AppService } from './app.service';
 import { PrismaModule } from './prisma/prisma.module';
 import { UsersModule } from './users/users.module';
 import { AiModule } from './ai/ai.module.js';
+import { ProblemsModule } from './problems/problems.module.js';
 import { auth } from './auth/auth';
 import { AuthModule } from '@thallesp/nestjs-better-auth';
 
@@ -24,6 +25,7 @@ import { AuthModule } from '@thallesp/nestjs-better-auth';
     PrismaModule,
     UsersModule,
     AiModule,
+    ProblemsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

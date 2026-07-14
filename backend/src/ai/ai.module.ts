@@ -8,6 +8,7 @@ import { GeminiProvider } from './providers/gemini.provider.js';
 @Module({
   imports: [ConfigModule],
   controllers: [AiController],
+  exports: [AiService],
   providers: [
     AiService,
     {
