@@ -1,0 +1,1 @@
+### Delete components folder, all the pages,, the services folder we will just start with the default project after testing is done
