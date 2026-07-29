@@ -27,6 +27,8 @@ export const ProblemSchema = z.object({
   constraints: z.array(z.string().min(1)).min(1, 'At least one constraint is required'),
   examples: z.array(ExampleSchema).min(1, 'At least one example is required'),
   starterCode: z.string().min(1, 'Starter code is required'),
+  helperCode: z.string().optional(),
+  driverCode: z.string().optional(),
   hiddenTestCases: z.array(TestCaseSchema).min(1, 'At least one hidden test case is required'),
   visibleTestCases: z.array(TestCaseSchema).min(1, 'At least one visible test case is required'),
   hints: z.array(z.string()).min(0),

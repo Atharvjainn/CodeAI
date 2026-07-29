@@ -45,7 +45,9 @@ The JSON object must follow this exact schema:
       "explanation": "string — optional explanation"
     }
   ],
-  "starterCode": "string — starter code in the requested language following the convention below",
+  "starterCode": "string — starter code / function stub that the user will edit (the user-facing solution template)",
+  "helperCode": "string — helper code like #include directives, utility functions, and data structures needed by the solution (NOT shown to the user, used only during compilation)",
+  "driverCode": "string — driver code with main() that reads input, calls the user's function, and prints output (NOT shown to the user, used only during execution)",
   "hiddenTestCases": [
     { "input": "string", "expectedOutput": "string" }
   ],

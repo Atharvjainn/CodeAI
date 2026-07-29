@@ -21,6 +21,8 @@ export interface Problem {
   constraints: string[];
   examples: Example[];
   starterCode: string;
+  helperCode?: string;
+  driverCode?: string;
   hiddenTestCases: TestCase[];
   visibleTestCases: TestCase[];
   hints: string[];

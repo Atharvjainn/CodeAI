@@ -43,6 +43,8 @@ export class ProblemsService {
           constraints: problem.constraints as unknown as Prisma.InputJsonValue,
           examples: problem.examples as unknown as Prisma.InputJsonValue,
           starterCode: problem.starterCode,
+          helperCode: problem.helperCode ?? null,
+          driverCode: problem.driverCode ?? null,
           hiddenTestCases: problem.hiddenTestCases as unknown as Prisma.InputJsonValue,
           visibleTestCases: problem.visibleTestCases as unknown as Prisma.InputJsonValue,
           hints: problem.hints as unknown as Prisma.InputJsonValue,
