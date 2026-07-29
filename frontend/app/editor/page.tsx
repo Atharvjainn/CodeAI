@@ -20,6 +20,9 @@ export default function EditorPage() {
     try {
       const result = await generateProblem(prompt)
       setResponse(JSON.stringify(result, null, 2))
+      if (result?.data?.starterCode) {
+        setCode(result.data.starterCode)
+      }
     } catch {
       setError('Something went wrong')
     } finally {
@@ -70,7 +73,7 @@ export default function EditorPage() {
         <MonacoEditor
           value={code}
           onChange={(v) => setCode(v ?? '')}
-          language="javascript"
+          language="cpp"
         />
       </div>
     </div>
