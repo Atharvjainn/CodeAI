@@ -6,13 +6,14 @@ export interface Example {
 
 export interface TestCase {
   input: string;
+  stdin: string;
   expectedOutput: string;
 }
 
 export interface Problem {
   title: string;
   slug: string;
-  difficulty: 'easy' | 'medium' | 'hard';
+  difficulty: "easy" | "medium" | "hard";
   tags: string[];
   problemStatement: string;
   detailedDescription: string;
@@ -21,7 +22,6 @@ export interface Problem {
   constraints: string[];
   examples: Example[];
   starterCode: string;
-  helperCode?: string;
   driverCode?: string;
   hiddenTestCases: TestCase[];
   visibleTestCases: TestCase[];

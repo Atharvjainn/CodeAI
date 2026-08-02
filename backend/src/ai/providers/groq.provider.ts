@@ -1,4 +1,7 @@
-import { LlmProvider, LlmResponse } from '../interfaces/llm-provider.interface.js';
+import {
+  LlmProvider,
+  LlmResponse,
+} from "../interfaces/llm-provider.interface.js";
 
 export class GroqProvider implements LlmProvider {
   private readonly apiKey: string;
@@ -26,23 +29,26 @@ export class GroqProvider implements LlmProvider {
     const timeout = setTimeout(() => controller.abort(), this.timeoutMs);
 
     try {
-      const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${this.apiKey}`,
+      const response = await fetch(
+        "https://api.groq.com/openai/v1/chat/completions",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${this.apiKey}`,
+          },
+          body: JSON.stringify({
+            model: this.model,
+            messages: [{ role: "user", content: prompt }],
+            temperature: this.temperature,
+            max_tokens: this.maxTokens,
+          }),
+          signal: controller.signal,
         },
-        body: JSON.stringify({
-          model: this.model,
-          messages: [{ role: 'user', content: prompt }],
-          temperature: this.temperature,
-          max_tokens: this.maxTokens,
-        }),
-        signal: controller.signal,
-      });
+      );
 
       if (!response.ok) {
-        const errorBody = await response.text().catch(() => '');
+        const errorBody = await response.text().catch(() => "");
         throw new Error(`Groq API error ${response.status}: ${errorBody}`);
       }
 
@@ -52,7 +58,7 @@ export class GroqProvider implements LlmProvider {
 
       const choice = data.choices?.[0];
       if (!choice) {
-        throw new Error('Groq returned empty choices');
+        throw new Error("Groq returned empty choices");
       }
 
       return {

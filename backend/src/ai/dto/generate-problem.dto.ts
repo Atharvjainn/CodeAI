@@ -1,5 +1,5 @@
-import { IsEnum, IsNotEmpty, IsOptional, IsString } from 'class-validator';
-import { Difficulty, Language } from '../types/index.js';
+import { IsEnum, IsNotEmpty, IsOptional, IsString } from "class-validator";
+import { Difficulty, Language } from "../types/index.js";
 
 export class GenerateProblemDto {
   @IsString()

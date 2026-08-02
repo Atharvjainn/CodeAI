@@ -76,7 +76,6 @@ model Problem {
   constraints           Json
   examples              Json
   starterCode           String
-  helperCode            String?
   driverCode            String?
   hiddenTestCases       Json
   visibleTestCases      Json

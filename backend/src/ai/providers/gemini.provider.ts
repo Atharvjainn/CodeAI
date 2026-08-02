@@ -1,4 +1,7 @@
-import { LlmProvider, LlmResponse } from '../interfaces/llm-provider.interface.js';
+import {
+  LlmProvider,
+  LlmResponse,
+} from "../interfaces/llm-provider.interface.js";
 
 export class GeminiProvider implements LlmProvider {
   private readonly apiKey: string;
@@ -29,8 +32,8 @@ export class GeminiProvider implements LlmProvider {
       const url = `https://generativelanguage.googleapis.com/v1beta/models/${this.model}:generateContent?key=${this.apiKey}`;
 
       const response = await fetch(url, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           contents: [{ parts: [{ text: prompt }] }],
           generationConfig: {
@@ -42,7 +45,7 @@ export class GeminiProvider implements LlmProvider {
       });
 
       if (!response.ok) {
-        const errorBody = await response.text().catch(() => '');
+        const errorBody = await response.text().catch(() => "");
         throw new Error(`Gemini API error ${response.status}: ${errorBody}`);
       }
 
@@ -57,12 +60,12 @@ export class GeminiProvider implements LlmProvider {
       const text = candidate?.content?.parts?.[0]?.text;
 
       if (!text) {
-        throw new Error('Gemini returned empty response');
+        throw new Error("Gemini returned empty response");
       }
 
       return {
         content: text,
-        finishReason: candidate?.finishReason ?? 'unknown',
+        finishReason: candidate?.finishReason ?? "unknown",
       };
     } finally {
       clearTimeout(timeout);

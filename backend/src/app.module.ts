@@ -1,13 +1,14 @@
-import { Module } from '@nestjs/common';
-import { ConfigModule } from '@nestjs/config';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { PrismaModule } from './prisma/prisma.module';
-import { UsersModule } from './users/users.module';
-import { AiModule } from './ai/ai.module.js';
-import { ProblemsModule } from './problems/problems.module.js';
-import { auth } from './auth/auth';
-import { AuthModule } from '@thallesp/nestjs-better-auth';
+import { Module } from "@nestjs/common";
+import { ConfigModule } from "@nestjs/config";
+import { AppController } from "./app.controller";
+import { AppService } from "./app.service";
+import { PrismaModule } from "./prisma/prisma.module";
+import { UsersModule } from "./users/users.module";
+import { AiModule } from "./ai/ai.module.js";
+import { ProblemsModule } from "./problems/problems.module.js";
+import { SubmissionsModule } from "./submissions/submissions.module.js";
+import { auth } from "./auth/auth";
+import { AuthModule } from "@thallesp/nestjs-better-auth";
 
 @Module({
   imports: [
@@ -26,6 +27,7 @@ import { AuthModule } from '@thallesp/nestjs-better-auth';
     UsersModule,
     AiModule,
     ProblemsModule,
+    SubmissionsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
